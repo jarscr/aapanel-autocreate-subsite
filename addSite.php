@@ -26,7 +26,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 $output = curl_exec($ch);
 curl_close($ch);
 
-echo json_encode(array('site'=>$AddSite,'ftp'=>$AddFTP,'content'=>$AddContent,'zip'=>$output));
+echo json_encode(array('site'=>$AddSite,'ftp'=>$AddFTP,'content'=>$AddContent,'zipInstall'=>$output));
 
 
 

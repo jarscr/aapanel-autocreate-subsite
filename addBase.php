@@ -5,6 +5,6 @@ include_once 'config.php';
 $aapanel = new aapanel_api;
 $DataBaseName = trim($_REQUEST['database']);
 
-$AgregarBase = $aapanel->addDatabase($DataBaseName);
-$InstalarBase = $aapanel->importDbase('/home/backup/database/mySite.sql',$DataBaseName);
-echo json_encode(array('base'=>$AgregarBase,'contenido'=>$InstalarBase));
+$addDatabase = $aapanel->addDatabase($DataBaseName);
+$importSQLDatabase = $aapanel->importDbase('/home/backup/database/mySite.sql',$DataBaseName);
+echo json_encode(array('base'=>$addDatabase,'content'=>$importSQLDatabase));
