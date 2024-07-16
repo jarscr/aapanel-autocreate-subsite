@@ -26,7 +26,16 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 $output = curl_exec($ch);
 curl_close($ch);
 
-echo json_encode(array('site'=>$AddSite,'ftp'=>$AddFTP,'content'=>$AddContent,'zipInstall'=>$output));
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "http://".$SiteName.".miSite.com/task.php");
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+$outputTask = curl_exec($ch);
+curl_close($ch);
+
+echo json_encode(array('site'=>$AddSite,'ftp'=>$AddFTP,'content'=>$AddContent,'zipInstall'=>$output,'taskRun'=>$outputTask));
 
 
 
